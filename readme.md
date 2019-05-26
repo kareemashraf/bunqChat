@@ -61,7 +61,8 @@ composer test
 ```
 
 
-#### API
+## API
+The API is generally RESTFUL and returns results in JSON.
 
 |HTTP | resource | Description |
 | --- | --- | --- |
@@ -75,7 +76,7 @@ composer test
 
 
 
-#### Assignment
+## Assignment
 
 Write a very simple ‘chat’ application backend in PHP. A user should be able to send a simple text
 message to another user and a user should be able to get the messages sent to him and the
