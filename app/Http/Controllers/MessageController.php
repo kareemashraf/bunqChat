@@ -60,7 +60,7 @@ class MessageController extends Controller
     	$user = User::find($from_user_id);
         broadcast(new Sent($user, $message))->toOthers();
 
-        return response()->json($message, 201);
+        return response()->json(['status' => 'Message Sent!'], 201);
     }
 
 }
