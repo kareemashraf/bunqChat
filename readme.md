@@ -1,72 +1,87 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+# Bunq Backend Home Assignment (Chat Application)
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+<hr>
 
-## About Laravel
+## Built With (Tech stack)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+* php 7.1 with framework [Laravel](https://laravel.com) 
+* [SQLite](https://www.sqlite.org/index.html)
+* WebSocket [Pusher](https://pusher.com/)
+* [PHPUnit testing](https://phpunit.de/)
+* [jQuery](https://jquery.com/)
+* [Bootstrap](https://getbootstrap.com/)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<hr>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1400 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Getting Started
 
-## Laravel Sponsors
+Clone the project repository by running the command below 
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```bash
+git clone https://github.com/kareemashraf/bunqChat.git
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
+After cloning, run:
 
-## Contributing
+```bash
+composer install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Duplicate `.env.example` and rename it `.env`
 
-## Security Vulnerabilities
+#### Database Migrations
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Be sure to fill in your database details in your `.env` file before running the migrations:
 
-## License
+```bash
+php artisan migrate
+```
 
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+(optional) run the following command to get sample records to the database
+
+```bash
+php artisan db:seed
+```
+
+And finally, start the application:
+
+```bash
+php artisan serve
+```
+
+and visit [http://localhost:8000/](http://localhost:8000/) to see the application in action. (also keep in mind that port 8000 could be different if busy)
+
+#### running PHPUnit test
+
+```bash
+composer test
+```
+
+
+#### API
+
+|HTTP | resource | Description |
+| --- | --- | --- |
+| GET | /api/users | get a list of all users |
+| GET | /api/users/{id} | get a user by userID |
+| GET | /api/messages/{fromUserID}/{toUserID} | get a list of messages that was sent between 2 users|
+| POST | /api/messages | store a new message |
+
+
+<hr>
+
+
+
+#### Assignment
+
+Write a very simple ‘chat’ application backend in PHP. A user should be able to send a simple text
+message to another user and a user should be able to get the messages sent to him and the
+author users of those messages. The users and messages should be stored in a simple SQLite
+database. All communication between the client and server should happen over a simple JSON
+based protocol over HTTP (which may be periodically refreshed to poll for new messages). A GUI,
+user registration and user login are not needed but the users should be identified by some token
+or ID in the HTTP messages and the database.
+
