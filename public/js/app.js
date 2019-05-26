@@ -1,5 +1,4 @@
 	
-getUsers();
 OrganizeUsers();
 changeUsers();
 insertMessage();
@@ -84,24 +83,6 @@ websocket_handler();
 		});
 	}
 
-
-
-	/**
-	 * First we will load all the users
-	 * then append it to the Dropdown lists
-	 * as there is no authentication, you can chose which user to chat whith whom
-	 */
-	function getUsers(){
-		$.get( "api/users", function( data ) {
-
-	        $.each(data, function (index, user) { 
-
-	      		$( "#fromUsers" ).append("<option value='"+user.id+"'>"+user.name+"</option>");      
-	      		$( "#toUsers" ).append("<option value='"+user.id+"'>"+user.name+"</option>");      
-	        });	  
-
-		});
-	}
 
 
 	/**

@@ -12,4 +12,4 @@
 */
 
 
-Route::get('/', 'MessageController@index');
+Route::get('/', 'UserController@index');

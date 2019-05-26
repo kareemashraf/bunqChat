@@ -17,7 +17,7 @@ class MessageController extends Controller
      */
     protected function index()
     {
-        return view('message');
+        // return view('message');
     }
 
     

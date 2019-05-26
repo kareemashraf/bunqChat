@@ -8,6 +8,18 @@ use App\User;
 class UserController extends Controller
 {
 
+
+    /**
+     * Show Chat
+     *
+     * @return \Illuminate\Http\Response
+     */
+    protected function index()
+    {
+        $users = $this->getUsers();
+        return view('message',['users' => $users]);
+    }
+
 	/**
      * Fetch all users
      *
@@ -15,8 +27,7 @@ class UserController extends Controller
      */
     public function getUsers()
     {
-        $users = User::all();
-        return response()->json($users, 200);
+        return User::all();
     }
 
 

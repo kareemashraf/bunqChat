@@ -20,6 +20,9 @@
                     <select class="form-control" id="fromUsers">
                         <option value="">Select User to send messag</option>
                       <!-- append users -->
+                      @foreach($users as $user)
+                          <option value='{{ $user->id }}'>{{ $user->name }}</option>
+                      @endforeach
                     </select>
                   </div>
                     &nbsp;&nbsp;
@@ -28,6 +31,9 @@
                     <select class="form-control" id="toUsers">
                         <option value="">Select User to chat with</option>
                       <!-- append users -->
+                      @foreach($users as $user)
+                          <option value='{{ $user->id }}'>{{ $user->name }}</option>
+                      @endforeach
                     </select>
                   </div>
                 </div>
