@@ -34,6 +34,11 @@ Duplicate `.env.example` and rename it `.env`
 
 #### Database Migrations
 
+since the database is SQLite, please create `databe.sqlite` in the 'database' directory
+```bash
+sudo touch database/database.sqlite
+```
+
 Be sure to fill in your database details in your `.env` file before running the migrations:
 
 ```bash
