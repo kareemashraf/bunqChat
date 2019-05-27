@@ -4,7 +4,7 @@ can be tested online on http://ec2-34-242-85-70.eu-west-1.compute.amazonaws.com/
 
 ## Built With (Tech stack)
 
-* php 7.1 with framework [Laravel](https://laravel.com) 
+* php 7.2 with framework [Laravel](https://laravel.com) 
 * [SQLite](https://www.sqlite.org/index.html)
 * WebSocket [Pusher](https://pusher.com/)
 * [PHPUnit testing](https://phpunit.de/)
