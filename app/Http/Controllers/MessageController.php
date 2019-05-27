@@ -63,4 +63,19 @@ class MessageController extends Controller
         return response()->json(['status' => 'Message Sent!'], 201);
     }
 
+
+    /**
+     * Delete a Message by ID
+     *
+     * @param  Request $request
+     * @return Response
+     */
+    public function deleteMessage(Request $request, $id)
+    {
+        $message = Message::findOrFail($id);
+        $message->delete();
+
+        return 204;
+    }
+
 }

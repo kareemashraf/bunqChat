@@ -56,7 +56,9 @@
         <div class="chat-body clearfix">
             <div class="header">
                 <strong class="primary-font username"> </strong>
-                    <i><span class="messageDate"></span></i>
+                    <i><span class="messageDate">
+                      <input type="hidden" name="msg-id" class="msg-id" value="">
+                    </span></i>
             </div>
             <p class="message">
                 

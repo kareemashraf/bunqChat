@@ -19,3 +19,4 @@ Route::get('users/{id}', 'UserController@getUserbyID');
 
 Route::get('messages/{fromUserID}/{toUserID}', 'MessageController@getMessages');
 Route::post('messages', 'MessageController@sendMessage');
+Route::delete('messages/{id}', 'MessageController@deleteMessage');

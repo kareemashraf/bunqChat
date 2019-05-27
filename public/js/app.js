@@ -3,6 +3,7 @@ OrganizeUsers();
 changeUsers();
 insertMessage();
 websocket_handler();
+deleteMessage();
 
 
 	/**
@@ -20,6 +21,7 @@ websocket_handler();
         var channel = pusher.subscribe('chatbot');
         channel.bind('App\\Events\\Sent', addMessage);
         function addMessage(data) {
+        	data.id = data.message.id;
         	data.created_at = data.message.created_at;
         	data.message = data.message.message;
           newChatLine(data);
@@ -50,7 +52,9 @@ websocket_handler();
 
 	    $(".chat").append($('#chatRow').html()); 
 	    $(".chat .username").last().append(message.user.name);
-	    $(".chat .messageDate").last().append(message.created_at); 
+	    $(".chat .messageDate").last().append(message.created_at);
+	    $(".chat .messageDate .msg-id").last().val(message.id); 
+	    $(".chat .messageDate").last().append(' <i class="fa fa-trash delete-msg" aria-hidden="true"></i>');
 	    $(".chat .message").last().append(message.message); 
 	}
 
@@ -83,6 +87,27 @@ websocket_handler();
 		});
 	}
 
+	/**
+	 * Delete a message by ID 
+	 * Display an alert "confirm" box, TODO only allow the user to delete his own messages 
+	 * ajax request to a Delete API, remove the message from the HTML DOM
+	 */
+	function deleteMessage(){
+
+		$("body").on('click','.delete-msg',function(){ 
+			var id =  $(this).parent().find('.msg-id').val();
+				var r = confirm("are you sure you would like to delete the message ? ");
+				if (r == true) {
+					$.ajax({
+					    type: 'DELETE',
+					    url: "api/messages/"+id,
+					    data: {'id': id},
+					    async: false
+					});
+					$(this).parents().eq(5).find('.clearfix').remove();
+				}
+		});
+	}
 
 
 	/**

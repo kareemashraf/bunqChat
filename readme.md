@@ -70,6 +70,7 @@ The API is generally RESTFUL and returns results in JSON.
 | GET | /api/users/{id} | get a user by userID |
 | GET | /api/messages/{fromUserID}/{toUserID} | get a list of messages that was sent between 2 users|
 | POST | /api/messages | store a new message |
+|DELETE| /api/messages/{id} | Delete a Message by ID |
 
 
 <hr>
