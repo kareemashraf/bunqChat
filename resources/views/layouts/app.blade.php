@@ -34,7 +34,7 @@
                 
               </div>
               <div id="app-navbar-collapse" class="collapse navbar-collapse">
-                <a href="https://github.com/kareemashraf/bunqChat" class="navbar-brand navbar-nav navbar-right">
+                <a href="https://github.com/kareemashraf/bunqChat" target="_blank" class="navbar-brand navbar-nav navbar-right">
                  Github
                 </a>
               </div>
