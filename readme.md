@@ -8,6 +8,7 @@ can be tested online on http://ec2-34-242-85-70.eu-west-1.compute.amazonaws.com/
 * [SQLite](https://www.sqlite.org/index.html)
 * WebSocket [Pusher](https://pusher.com/)
 * [PHPUnit testing](https://phpunit.de/)
+* [Postman](https://www.getpostman.com/) for API testing
 * [jQuery](https://jquery.com/)
 * [Bootstrap](https://getbootstrap.com/)
 
