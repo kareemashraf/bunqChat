@@ -10,16 +10,19 @@ use App\Message;
 class MessageController extends Controller
 {
 
-	/**
-     * Show Chat
+    /**
+     * Delete a Message by ID
      *
-     * @return \Illuminate\Http\Response
+     * @param  Request $request
+     * @return Response HTTP status code 204 
      */
-    protected function index()
+    public function deleteMessage(Request $request, $id)
     {
-        // return view('message');
-    }
+        $message = Message::findOrFail($id);
+        $message->delete();
 
+        return 204;
+    }
     
     /**
      * Fetch all messages by both users IDs 
@@ -52,10 +55,9 @@ class MessageController extends Controller
      */
     protected function sendMessage(Request $request)
     {
-
         $message =  Message::create($request->all());
         
-        //after a new message is inserted, now setup the Websocket notification
+        //after a new message is inserted, now setup the pusher Websocket notification
         $from_user_id = $request->from_user_id;
     	$user = User::find($from_user_id);
         broadcast(new Sent($user, $message))->toOthers();
@@ -63,19 +65,5 @@ class MessageController extends Controller
         return response()->json(['status' => 'Message Sent!'], 201);
     }
 
-
-    /**
-     * Delete a Message by ID
-     *
-     * @param  Request $request
-     * @return Response
-     */
-    public function deleteMessage(Request $request, $id)
-    {
-        $message = Message::findOrFail($id);
-        $message->delete();
-
-        return 204;
-    }
 
 }
