@@ -46,7 +46,7 @@ Be sure to fill in your database details in your `.env` file before running the 
 php artisan migrate
 ```
 
-(optional) run the following command to get sample records to the database
+(Important) run the following command to get sample records to the database, and insert sample users.
 
 ```bash
 php artisan db:seed
