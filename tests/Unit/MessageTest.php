@@ -35,18 +35,12 @@ class MessageTest extends TestCase
      */
     public function testsendMessage()
     {
-        $this->post('/api/messages/', [
+        $post = $this->post('/api/messages/', [
         'from_user_id' => 1,
         'to_user_id' => 2,
         'message' => 'unit test message',
-	    ])->assertJsonStructure([
-	        'from_user_id',
-	        'to_user_id',
-	        'message',
-	        'updated_at',
-	        'created_at',
-	        'id'
-	    ]);
+	    ])->assertStatus(201);
+        $this->assertEquals($post->getContent(), '{"status":"Message Sent!"}');
     }
 }
 

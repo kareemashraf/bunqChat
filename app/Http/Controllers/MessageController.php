@@ -34,7 +34,7 @@ class MessageController extends Controller
         $from =  $request->fromUserID;
         $to =  $request->toUserID;
 
-        //query the messages to be seen by who sent it and who received it
+        //query the messages to be seen by who sent it or who received it
         $messages = Message::with('user')
 			        ->where('to_user_id', $to)
 					->where('from_user_id', $from)
