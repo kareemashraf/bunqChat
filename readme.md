@@ -1,5 +1,5 @@
-# Bunq Backend Home Assignment (Chat Application)
-can be tested online on http://ec2-34-242-85-70.eu-west-1.compute.amazonaws.com/
+# Simple Backend Home Assignment (Chat Application)
+can be tested online on http://3.248.182.150/
 <hr>
 
 ## Built With (Tech stack)
